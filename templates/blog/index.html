@@ -1,0 +1,36 @@
+{% extends "main/base_generic.html" %}
+{% load static from staticfiles %}
+{% block content %}
+    <div>
+        <div class="blog-header">
+            <h1 class="blog-title">Yet another blog</h1>
+            <p class="lead blog-description">The official example of yet another django blog.</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 blog-main">
+                {% if latest_article_list %}
+                    {% for article in latest_article_list %}
+                        <div class="blog-post">
+                            <h2 class="blog-post-title">{{ article.headline }}</h2>
+                            <p class="blog-post-meta">{{ article.added_date }} <a href="#">{{ article.reporter }}</a>
+                            </p>
+                            <div class="blog-post-category">
+                                <a href="#"># {{ article.category }}</a>
+                            </div>
+                            {{ article.content|linebreaks|truncatewords:"30" }}
+                            <a href="{% url 'article-detail' article.slug %}">read more</a>
+                        </div><!-- /.blog-post -->
+                    {% endfor %}
+                {% endif %}
+            </div><!-- /.blog-main -->
+        </div><!-- /.row -->
+        <footer class="blog-footer">
+            <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a
+                    href="https://twitter.com/mdo">@mdo</a>.
+            </p>
+            <p>
+                <a href="#">Back to top</a>
+            </p>
+        </footer>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+.idea/*
+.idea/
+.idea
+.pyc
+*.pyc
+migrations/*
+migrations
+migrations/
+tmp
+tmp/*
+tmp/
+.~lock*
+*.sqlite3
+*.sqlite
+*.db
