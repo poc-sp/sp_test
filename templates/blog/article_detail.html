@@ -20,8 +20,7 @@
                 <div class="blog-comments">
                     {% for comment in comments %}
                         <div class="comment-block">
-                            <span class="text-muted"
-                                  class="comment-headline"># {{ comment.id }} {{ comment.added_date }} by {{ comment.user }}</span>
+                            <span class="text-muted comment-headline"># {{ comment.id }} {{ comment.added_date }} by {{ comment.user }}</span>
                             <span class="comment">{{ comment.content|linebreaks }}</span>
                         </div>
                     {% endfor %}
